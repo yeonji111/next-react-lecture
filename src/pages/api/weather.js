@@ -2,6 +2,7 @@ export default async function handler(req, res) {
   /* get 방식의 통신 : parameter가 담긴 위치 : request.query */
   //   const { method, query } = req;
   //   console.log("query =>", query);
+
   /* post 방식의 통신 : parameter가 담긴 위치 : request.body */
   const { method, body } = req;
   console.log("method =>", method);
@@ -16,7 +17,7 @@ export default async function handler(req, res) {
     const result = await weatherRes.json();
     console.log(result.response.body.items);
 
-    // res.status(200).json(result.response.body.items);
+    res.status(200).json(result.response.body.items);
   } catch (err) {
     console.log("er======>", err);
     res.status(500).json({ message: "server error" });
